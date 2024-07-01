@@ -46,6 +46,14 @@ pip install pytest-playwright
 pip install requests
 ```
 
+* ** install playwright:**
+use command:
+```
+playwright install
+```
+see more details at:
+https://playwright.dev/python/docs/intro#installing-playwright-pytest
+
 * **update credentials in env file**
 note: file should be located only locally or data should be encrypted
 ./env
@@ -60,7 +68,7 @@ pytest -s -v -q  ./tests/test_one.py
 * **with report generation and opening in browser:**
 
 ```
-pytest --alluredir ./allure_rep ./tests/test_app_one.py
+pytest --alluredir ./allure_rep ./tests/test_one.py
 
 bin\allure.bat serve .\allure_rep
 ```
@@ -87,3 +95,16 @@ pytest -s -v -q  ./tests/./tests/test_one.py -m datasets
 pytest --html=report.html  -s -v -q  ./tests/test_one.py
 
 ```
+
+* ** using with poetry**
+
+```
+pip install poetry
+poetry install
+```
+
+run:
+```
+poetry run pytest --alluredir ./allure_rep ./tests/test_one.py
+```
+file with configuration - pyproject.toml

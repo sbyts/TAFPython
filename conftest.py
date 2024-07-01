@@ -20,3 +20,8 @@ def context(playwright: Playwright) -> Generator[BrowserContext, None, None]:
     context.close()
 
 
+def pytest_configure(config):
+    config.addinivalue_line("markers", "datasets: test suite datasets")
+    config.addinivalue_line(
+        "markers", "mark_with(arg, arg2): this marker takes arguments."
+    )
