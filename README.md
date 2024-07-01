@@ -29,6 +29,61 @@ if such emulation is not enough - we can find solution here https://www.browsers
 if you need some specific version(of several last versions of a certain browser) as an alternative is https://www.selenium.dev/documentation/grid/ but requires more effort and resources.
 https://playwright.dev/python/docs/selenium-grid (for Playwright  Selenium Grid on experimental level - potentially will be implemented in future. 
 
-### performance testing:
+### Performance testing:
 
 can be organized based on modules "asyncio", "multiprocessing", "threading" or specific solution like "Locust" It depends on infrastructure and requirements. 
+
+### Test environment preparation:
+Python version: 3.x
+
+
+* ** Lib's and packages:**
+```
+pip install -U pytest
+pip install allure-pytest
+pip install pytest-html
+pip install pytest-playwright
+pip install requests
+```
+
+* **update credentials in env file**
+note: file should be located only locally or data should be encrypted
+./env
+
+* **verbose run in console:**
+
+```
+run:
+ 
+pytest -s -v -q  ./tests/test_one.py
+```
+* **with report generation and opening in browser:**
+
+```
+pytest --alluredir ./allure_rep ./tests/test_app_one.py
+
+bin\allure.bat serve .\allure_rep
+```
+note: see doc for allure how it works
+
+* **can be run by severities, features, story** (Example)
+
+```
+pytest my_tests/ --allure_severities=critical,blocker
+pytest my_tests/ --allure_features=feature1,feature2
+pytest my_tests/ --allure_features=feature1,feature2 --allure_stories=story1,story2
+```
+
+* **can be run by specific tag (pytest marker)**
+
+```
+pytest -s -v -q  ./tests/./tests/test_one.py -m datasets
+
+```
+
+* ** with html report generation**
+
+```
+pytest --html=report.html  -s -v -q  ./tests/test_one.py
+
+```

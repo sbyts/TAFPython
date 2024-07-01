@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "tafpython"
+version = "0.1.0"
+description = "Test Automation Framework for python"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+pytest = "^8.2.2"
+allure-pytest = "^2.13.5"
+pytest-html = "^4.1.1"
+pytest-playwright = "^0.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
